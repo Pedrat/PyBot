@@ -1,11 +1,34 @@
 import os
-from flask import session,escape,Flask,url_for,render_template,request,redirect
+from flask import session,escape,Flask,url_for,render_template,request,redirect,send_file
 from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = '/home/mint/'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','vbs'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+
+@app.route('/get_image')
+def get_image():
+    if request.args.get('type') == '1':
+       filename = 'templates/dario.jpg'
+    else:
+       filename = 'templates/dario.jpg'
+    return send_file(filename, mimetype='image/jpg')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -54,3 +77,4 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('upload_file',filename=filename))
     return render_template('upload.html')
+'''
