@@ -15,13 +15,13 @@ def index():
     if 'username' in session:
         return '(/logout para saires) Logged in as %s' % escape(session['username'])
     return 'You are not logged in(Vai para /login)'
-    
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         session['username'] = request.form['username']
         return redirect(url_for('index'))
-    return render_template('login.html')
+    return render_template('hello.html')
 app.secret_key = '\xdc\x12\xdb\xd9\x07Y\x9c\x7f=\xd2\xd5*:\x82B/\xe9OZ\x91d\xd2\x9dR'
 @app.route('/logout')
 def logout():
