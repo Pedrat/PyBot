@@ -18,16 +18,6 @@ def get_image():
 
 
 
-
-
-
-
-
-
-
-
-
-
 '''
 def allowed_file(filename):
     return '.' in filename and \
