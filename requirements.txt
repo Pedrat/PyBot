@@ -1,0 +1,8 @@
+Flask
+Jinja2
+MarkupSafe
+Werkzeug
+click==6.7
+gunicorn
+requests==2.18.4
+fbmq

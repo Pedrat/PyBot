@@ -2,7 +2,7 @@ import os
 from flask import session,escape,Flask,url_for,render_template,request,redirect
 from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = '/home/mint/'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','vbs'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -15,6 +15,7 @@ def index():
     if 'username' in session:
         return '(/logout para saires) Logged in as %s' % escape(session['username'])
     return 'You are not logged in(Vai para /login)'
+    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
